@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Nav from '../../components/Nav/Nav';
 
+
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
-
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class Dashboard extends Component {
+class AdminPage extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: USER_ACTIONS.FETCH_USER
+      // fetch admin action data here
     });
   }
 
@@ -25,29 +23,17 @@ class Dashboard extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch({
-      type: LOGIN_ACTIONS.LOGOUT
-    });
-    // this.props.history.push('home');
-  }
-
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1
-            id="welcome"
-          >
-            Welcome, { this.props.user.userName }!
-          </h1>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+          <p>
+            <h2>Admin View</h2>
+              {/* insert Admin Data here ex. <AdminData/> */}
+
+          </p>
         </div>
       );
     }
@@ -62,5 +48,4 @@ class Dashboard extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(Dashboard);
-
+export default connect(mapStateToProps)(AdminPage);
