@@ -1,4 +1,8 @@
+# CB-Filter, a spam filter for Caring Bridge
 
-    
-
-Jason Phan 
+## Contributors
+- ** Rory Ivance
+- ** Ellen Keal
+- ** Bob Petersen
+- ** Jason Phan
+- ** Emily Kay
