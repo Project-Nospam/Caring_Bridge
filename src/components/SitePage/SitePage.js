@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-
-class AdminPage extends Component {
+class SitePage extends Component {
     constructor(props) {
         super(props);
 
@@ -18,9 +17,10 @@ class AdminPage extends Component {
     render() {
         return (
             <div>
+                <h2>SitePage</h2>
             </div>
         )
     }
 }
 
-export default AdminPage;
+export default SitePage;
