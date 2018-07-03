@@ -18,6 +18,12 @@ class ApprovalHeader extends Component {
         });
     }
 
+    handleClickForDeactivate = () => {
+        console.log('Deactivate button click ');
+        this.setState({
+            deactivate: true,
+        })
+
     handleNotSpam = (event) => {
         event.preventDefault();
         this.props.history.goBack();
@@ -26,6 +32,7 @@ class ApprovalHeader extends Component {
     handleSpam = (event) => {
         event.preventDefault();
         this.props.history.goBack();
+
     }
 
     render() {

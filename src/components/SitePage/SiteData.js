@@ -6,6 +6,10 @@ const mapStateToProps = state => ({
   site: state.site,
 });
 class SiteData extends Component {
+
+
+
+// Site data
   constructor(props) {
     super(props);
     this.state = {

@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class ProfileData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markSafe: false,
+    }
+  }
+
+  handleClickForMarkSafe = () => {
+    console.log('Mark Safe button clicked');
+    this.setState({
+      markSafe: true,
+    });
+  }
 
   render() {
     
@@ -49,4 +67,4 @@ class ProfileData extends Component {
   }
 }
 
-export default ProfileData;
+export default connect(mapStateToProps)(ProfileData);

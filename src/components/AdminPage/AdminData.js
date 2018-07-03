@@ -25,11 +25,11 @@ class AdminData extends Component {
   }
 
     handleClickForDeactivate = () => {
-        console.log('Deactivate button click ');
-  this.setState({
-    deactivate: true,
-  })
-}
+    console.log('Deactivate button click ');
+        this.setState({
+            deactivate: true,
+        })
+    }
 // Admin Table data goes here
   render() {
     {this.props.user.username}

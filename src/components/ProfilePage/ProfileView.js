@@ -20,7 +20,12 @@ class ProfileView extends Component {
     });
   }
 
- 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'FETCH_PROFILES'
+    });
+  }
+
   render() {
     let content = null;
 
@@ -28,7 +33,7 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-        < ProfileData / >
+        <ProfileData />
         </div>
       );
     }
