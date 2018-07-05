@@ -44,6 +44,7 @@ class SiteView extends Component {
         { content }
       </div>
     );
+   
   }
 }
 

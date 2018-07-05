@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProfileData from './ProfileData'
 import Nav from '../../components/Nav/Nav';
-
+import { PROFILE_ACTIONS } from '../../redux/actions/profileActions';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import { LOGIN_ACTIONS } from '../../redux/actions/loginActions';
-
-
 const mapStateToProps = state => ({
-  user: state.user,
+ 
 });
 
 class ProfileView extends Component {
@@ -20,7 +17,13 @@ class ProfileView extends Component {
     });
   }
 
- 
+  componentDidMount() {
+    this.props.dispatch({
+      type: PROFILE_ACTIONS.FETCH_PROFILES
+    });
+  }
+
+
   render() {
     let content = null;
 
@@ -28,7 +31,7 @@ class ProfileView extends Component {
       content = (
         <div>
           <p>Profile View</p>
-        < ProfileData / >
+        <ProfileData />
         </div>
       );
     }

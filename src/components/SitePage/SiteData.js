@@ -27,7 +27,7 @@ class SiteData extends Component {
   }
 
   render() {
-    
+    { this.props.site }
     return (
       <div>
           <h2>SiteData</h2>
@@ -80,6 +80,7 @@ class SiteData extends Component {
               </tr>
           </tbody>
         </table>
+        {<pre>{JSON.stringify(this.props.site)}</pre>}
       </div>
     );
   }
