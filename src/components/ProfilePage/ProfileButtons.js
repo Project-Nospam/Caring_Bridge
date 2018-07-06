@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
+import {connect} from 'react-redux';
 
 class ProfileButtons extends Component {
 
@@ -28,4 +29,4 @@ class ProfileButtons extends Component {
 }
 
 
-export default ProfileButtons;
+export default connect()(ProfileButtons);

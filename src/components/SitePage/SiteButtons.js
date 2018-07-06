@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
+import {connect} from 'react-redux';
 
 class SiteButtons extends Component {
 
@@ -27,4 +28,4 @@ class SiteButtons extends Component {
 }
 
 
-export default SiteButtons;
+export default connect()(SiteButtons);
