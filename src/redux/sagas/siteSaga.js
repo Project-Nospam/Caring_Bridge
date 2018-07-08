@@ -11,8 +11,7 @@ const config = {
 
 function* getSites() {
   try {
-    // getSites axios function is located in siteRequest
-    const sites = yield callSite();
+    let sites = yield callSite();
     yield put({
       type: 'SET_SITE',
       payload: sites,
@@ -26,7 +25,12 @@ function* getSites() {
 // include action.payload with 'reset', 'spam', or 'notSpam'
 function* setSiteStatus(action) {
   let url = 'api/site/' + action.payload.status
-  yield call(axios.put, url, {id: action.payload.site._id, reason: action.payload.site.audit_data.reason}, config);
+  yield call(axios.put, url, 
+            {id: action.payload.site._id, 
+            reason: action.payload.site.audit_data.reason, 
+            result: action.payload.site.audit_data.result, 
+            auditedBy: action.payload.site.audit_data.auditedBy}, 
+            config);
   yield put({
     type: 'CHANGE_RECENT_THREE_SITE',
     payload: action.payload.site,
