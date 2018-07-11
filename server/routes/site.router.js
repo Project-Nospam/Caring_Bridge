@@ -1,17 +1,28 @@
 const router = require('express').Router();
 const Site = require('../models/Site');
+const SiteProfile = require('../models/SiteProfile');
+const Profile = require('../models/Profile');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // returns an array of site objects
-router.get('/', (req, res) => {
-    Site.find({ 'audit_data.flagged': true })
-        .then((results) => {
-            res.send(results);
-        })
-        .catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
+router.get('/', async function (req, res) {
+    try {
+        let siteResults = await Site.find({ 'audit_data.flagged': true });
+        let response = [];
+        for (site of siteResults) {
+            let relationship = await SiteProfile.find({ 'siteId': site._id }).sort({ createdAt: 1 });
+            let profile = await Profile.find({ '_id': relationship[0].userId });
+            site = {
+                ...site._doc,
+                user: profile[0],
+            }
+            response.push(site);
+        }
+        res.send(response);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
 });
 
 // takes in 'status' param with value 'spam', or 'safe'

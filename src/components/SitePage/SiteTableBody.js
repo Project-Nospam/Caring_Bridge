@@ -124,11 +124,12 @@ class SiteTableBody extends Component {
                         <SiteButtons site={data} buttonLabel="Review"/>
                       </TableCell>
                       <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
-                      <TableCell>{data.name}</TableCell>
+                      <TableCell>{data.user.firstName} {data.user.lastName}</TableCell>
                       <TableCell numeric>{data.status.userId.toString()}</TableCell>
                       {/* <TableCell numeric>Email goes here</TableCell> */}
-                      <TableCell numeric><Moment format="LL">{data.createdAt}</Moment></TableCell>
+                      <TableCell numeric><Moment format="LL">{data.user.email.createdAt}</Moment></TableCell>
                       <TableCell >{data.audit_data.reason.toString()}</TableCell>
+                      {console.log('data:',data)}
                     </TableRow>
                   );
                 })}
