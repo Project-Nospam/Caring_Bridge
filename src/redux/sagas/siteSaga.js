@@ -13,20 +13,10 @@ function* getSites() {
   try {
     // getSites axios function is located in siteRequest
     const sites = yield callSite();
-    // the for loops below takes a while, so this enables the number on the dash
-    // to show up fairly quickly, instead of taking a second per 250 items or so
     yield put({
       type: 'SET_SITE',
       payload: sites,
     });
-    // for (let site of sites) {
-    //   let user = yield call(axios.get, 'api/profile/locate', {params: {id: site.status.userId}}, config);
-    //   site.user = user.data[0];
-    // }
-    // yield put({
-    //   type: 'SET_SITE',
-    //   payload: sites,
-    // });
   } catch (error) {
     console.log(`Error on getSites: ${error}`);
   };

@@ -22,12 +22,6 @@ class LastThree extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'FETCH_SITE'
-    })
-  }
-
   handleClickForDeactivate = () => {
     console.log('Deactivate button click ');
     this.setState({
